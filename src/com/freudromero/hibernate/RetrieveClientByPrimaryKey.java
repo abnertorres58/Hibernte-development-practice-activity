@@ -48,10 +48,8 @@ public class RetrieveClientByPrimaryKey {
 
             // Retrieve a Client based on id: Primary Key
             System.out.println("\nGetting Client with Id = 3");
-            List<Client> theClients = session.createQuery("from Client c where c.id = 3").getResultList();
-            for(Client client : theClients) {
-                System.out.println(client);
-            }
+            Client theClient = session.get(Client.class, 3);
+            System.out.println(theClient);
 
             // Commit the transaction
             session.getTransaction().commit();
